@@ -1,4 +1,4 @@
-# ibm-instana-ansible
+# Ansible Collection - ibm.instana
 
 The IBM Instana collection provides the ability for Instana event data to be consumed by Event Driven Ansible (EDA). In EDA, rulebooks are defined with 'If-This-Then-That' conditions. The condition uses parsed Instana event data to trigger automation. This enables you to build existing operational knowledge into automated decision-making and actions, so that you can efficiently perform repetitive tasks and deliver services faster, with far less effort while reducing Mean-Time-To-Resolution (MTTR)."
 This Ansible collection, provided as part of the IBM Blockchain Platform, enables you to automate the building of Hyperledger Fabric networks.
@@ -6,5 +6,5 @@ This Ansible collection, provided as part of the IBM Blockchain Platform, enable
 ## Using the collection
 
 ```
-    ansible-galaxy collection install ibm.instana
+    ansible-galaxy collection install ibm.instana 
 ```
