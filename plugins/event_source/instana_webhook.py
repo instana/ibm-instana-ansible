@@ -1,5 +1,5 @@
 """
-instana.py
+instana_webhook.py
 
 An ansible-rulebook event source module for receiving events via a instana.
 
@@ -7,6 +7,31 @@ Arguments:
     host: The hostname to listen to. Set to 0.0.0.0 to listen on all
           interfaces. Defaults to 127.0.0.1
     port: The TCP port to listen to.  Defaults to 5000
+
+
+    - name: Listen for events on a webhook
+  hosts: all
+
+  ## Define our source for events
+
+  sources:
+   - ibm.instana.instana_webhook:
+       host: 0.0.0.0
+       port: 5000
+
+ ## Define the conditions we are looking for
+
+  rules:
+   - name: Test
+     condition: event.payload.message == "Node failed"
+     action:
+        run_playbook:
+          name: test..yml
+   - name: Event
+     condition: event.payload.problem.problemText == "Erroneous call rate is too high"
+     action:
+        run_playbook:
+          name: remediate.yml
 
 """
 
@@ -19,7 +44,7 @@ routes = web.RouteTableDef()
 
 
 @routes.post("/{instana}")
-async def instana(request: web.Request):
+async def instana_webhook(request: web.Request):
     payload = await request.json()
     endpoint = request.match_info["endpoint"]
     data = {
