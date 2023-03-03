@@ -46,7 +46,7 @@ routes = web.RouteTableDef()
 @routes.post("/{instana}")
 async def instana_webhook(request: web.Request):
     payload = await request.json()
-    endpoint = request.match_info["endpoint"]
+    endpoint = request.match_info["instana"]
     data = {
         "payload": payload,
         "meta": {"endpoint": endpoint, "headers": dict(request.headers)},
