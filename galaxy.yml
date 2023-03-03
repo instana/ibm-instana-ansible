@@ -36,7 +36,7 @@ tags:
   - remediation
   - action
   - mttr
-  - event driven ansible
+  - eda
   - rulebook
   - monitoring
   - cloud
