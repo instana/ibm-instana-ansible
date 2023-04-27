@@ -8,7 +8,7 @@ namespace: ibm
 name: instana
 
 # The version of the collection. Must be compatible with semantic versioning
-version: 1.0.4 
+version: 1.0.5 
 
 # The path to the Markdown (.md) readme file. This path is relative to the root of the collection
 readme: README.md
@@ -53,4 +53,3 @@ homepage: "https://www.instana.com"
 
 # The URL to the collection issue tracker
 issues: "https://github.com/instana/ibm-instana-ansible/issues"
-
