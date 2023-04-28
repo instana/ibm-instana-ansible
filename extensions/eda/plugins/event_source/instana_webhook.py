@@ -84,15 +84,13 @@ async def main(queue: asyncio.Queue, args: dict[str, Any]) -> None:
 """Begin main method."""
 if __name__ == "__main__":
     class MockQueue:
-        """Start Queue for incoming request.
-
-        Arguments:
-        ---------
-        event: Event used stored in queue.
-        """
-
+        """Start Queue for incoming request."""
         async def put(self: instana_webhook, event: web.Event) -> None:
-            """Log the incoming event from Instana."""
+            """Log the incoming event from Instana.
+            Arguments:
+            ---------
+            event: Event used in queue,
+            """
             logging.info(event)
 
     asyncio.run(main(MockQueue(), {}))
