@@ -89,7 +89,7 @@ if __name__ == "__main__":
             """Log the incoming event from Instana.
             Arguments:
             ---------
-            event: Event used in queue,
+            event: Event used in queue.
             """
             logging.info(event)
 
