@@ -33,6 +33,8 @@ from typing import Any
 from aiohttp import web
 
 routes = web.RouteTableDef()
+
+
 @routes.post("/{instana}")
 async def instana_webhook(request: web.Request) -> web.Response:
     """Do parsing of Instana event data from the request.
@@ -71,13 +73,13 @@ async def main(queue: asyncio.Queue, args: dict[str, Any]) -> None:
     runner = web.AppRunner(app)
     await runner.setup()
     site = web.TCPSite(runner, args.get("host") or "localhost",
-        args.get("port") or 5000,
-       )
+                       args.get("port") or 5000,
+                       )
     await site.start()
     try:
         await asyncio.Future()
     except asyncio.CancelledError:
-       logging.info("Plugin Task Cancelled")
+        logging.info("Plugin Task Cancelled")
     finally:
         await runner.cleanup()
 
@@ -85,11 +87,13 @@ async def main(queue: asyncio.Queue, args: dict[str, Any]) -> None:
 if __name__ == "__main__":
     class MockQueue:
         """Start Queue for incoming request."""
+
         async def put(self: instana_webhook, event: web.Event) -> None:
             """Log the incoming event from Instana.
+
             Arguments:
             ---------
-            event: Event used in queue.
+            event: Event popped in queue.
             """
             logging.info(event)
 
