@@ -45,7 +45,7 @@ The IBM Instana collection provides the ability for Instana event data to be con
     Next, in Instana use the action framework to create an action which will invoke the rulebook webhook above, and 
     pass in the event payload to trigger the condition defined.
     
-    Here is an action example:
+    Here is an action example that was defined in Instana:
     
     # The @@eda_server@@ is parameter which points to the webhook host and port above.
     # The ${INSTANA_EVENT} is the content of event associated to the action below. 
