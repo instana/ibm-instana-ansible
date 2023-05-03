@@ -72,13 +72,9 @@ The IBM Instana collection provides the ability for Instana event data to be con
 
 ## Licensing
 
-```
-Apache-2.0
-http://www.apache.org/licenses/LICENSE-2.0  
-```
+[Apache-2.0](http://www.apache.org/licenses/LICENSE-2.0)  
+
 
 ## Release Notes
 
-```
-[https://github.com/instana/ibm-instana-ansible/blob/main/CHANGELOG.rst](https://github.com/instana/ibm-instana-ansible/blob/main/CHANGELOG.rst)  
-```
+[Please see the change log](https://github.com/instana/ibm-instana-ansible/blob/main/CHANGELOG.rst)
