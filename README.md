@@ -12,9 +12,9 @@ The IBM Instana collection provides the ability for Instana event data to be con
 
 ```
     Install the collection: ansible-galaxy collection install ibm.instana
-    
+```    
     Once installed, define the instana_webhook in the source of the rulebook.
-    Then define rules with conditions based on the event payload coming from Instana.
+    Then, define rules with conditions based on the event payload coming from Instana.
     
         - name: Listen for events on a webhook
           hosts: all
@@ -61,7 +61,6 @@ The IBM Instana collection provides the ability for Instana event data to be con
       curl -H 'Content-Type: application/json' -d "${INSTANA_EVENT}" @@eda_server@@/instana
     fi
   
-```
 
 
 ## Requirements
@@ -81,5 +80,5 @@ http://www.apache.org/licenses/LICENSE-2.0
 ## Release Notes
 
 ```
-https://github.com/instana/ibm-instana-ansible/blob/main/CHANGELOG.rst  
+[https://github.com/instana/ibm-instana-ansible/blob/main/CHANGELOG.rst](https://github.com/instana/ibm-instana-ansible/blob/main/CHANGELOG.rst)  
 ```
