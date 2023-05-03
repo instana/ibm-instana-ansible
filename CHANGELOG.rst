@@ -7,3 +7,7 @@ Initial push of Instana ansible collection. Released focused on the `instana_web
 ## 1.0.6
 
 Update linting for code
+
+## 1.0.16
+
+Updating documentation and plugin structure
