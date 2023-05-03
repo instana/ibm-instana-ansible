@@ -43,7 +43,7 @@ The IBM Instana collection provides the ability for Instana event data to be con
     
     
     Next, in Instana use the action framework to create an action which will invoke the rulebook webhook above, and 
-    pass in the event payload to trigger the condition defined in the rulebook.
+    pass in the event payload to trigger the condition defined.
     
     Here is an action example:
     
