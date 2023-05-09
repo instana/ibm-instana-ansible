@@ -24,6 +24,7 @@ Arguments:
      action:
         run_playbook:
           name: remediate.yml
+
 """
 
 import asyncio
@@ -39,13 +40,15 @@ routes = web.RouteTableDef()
 async def instana_webhook(request: web.Request) -> web.Response:
     """Do parsing of Instana event data from the request.
 
-    Arguments:
-    ---------
-    request (web.Request): Request from Instana.
+    Parameters
+    ----------
+    request : web.Request
+              Request from Instana.
 
-    Returns:
+    Returns
     -------
-    response(web.Response): Create response with results.
+    response : web.Response
+               Create response with results.
     """
     payload = await request.json()
     endpoint = request.match_info["instana"]
@@ -60,10 +63,12 @@ async def instana_webhook(request: web.Request) -> web.Response:
 async def main(queue: asyncio.Queue, args: dict[str, Any]) -> None:
     """Start server on port 5000 listening for Instana events.
 
-    Arguments:
-    ---------
-    queue (Queue): Order incoming request from Instana.
-    args (dict): Use server configurations.
+    Parameters
+    ----------
+    queue: Queue
+           Order incoming request from Instana.
+    args: dict
+          Use server configurations.
     """
     app = web.Application()
     app["queue"] = queue
@@ -72,9 +77,11 @@ async def main(queue: asyncio.Queue, args: dict[str, Any]) -> None:
 
     runner = web.AppRunner(app)
     await runner.setup()
-    site = web.TCPSite(runner, args.get("host") or "localhost",
-                       args.get("port") or 5000,
-                       )
+    site = web.TCPSite(
+        runner,
+        args.get("host") or "localhost",
+        args.get("port") or 5000,
+    )
     await site.start()
     try:
         await asyncio.Future()
@@ -83,17 +90,20 @@ async def main(queue: asyncio.Queue, args: dict[str, Any]) -> None:
     finally:
         await runner.cleanup()
 
-"""Begin main method."""
+
+# Begin main method.
 if __name__ == "__main__":
+
     class MockQueue:
         """Start Queue for incoming request."""
 
         async def put(self: instana_webhook, event: web.Event) -> None:
             """Log the incoming event from Instana.
 
-            Arguments:
-            ---------
-            event: Event popped in queue.
+            Parameters
+            ----------
+            event: web.Event
+                   Event popped in queue.
             """
             logging.info(event)
 
