@@ -24,6 +24,7 @@ Arguments:
      action:
         run_playbook:
           name: remediate.yml
+
 """
 
 import asyncio
@@ -83,12 +84,12 @@ async def main(queue: asyncio.Queue, args: dict[str, Any]) -> None:
     finally:
         await runner.cleanup()
 
-"""Begin main method."""
+
 if __name__ == "__main__":
     class MockQueue:
         """Start Queue for incoming request."""
 
-        async def put(self: instana_webhook, event: web.Event) -> None:
+        async def put(self: instana_webhook, event: None) -> None:
             """Log the incoming event from Instana.
 
             Arguments:
