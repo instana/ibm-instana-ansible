@@ -35,18 +35,19 @@ from aiohttp import web
 
 routes = web.RouteTableDef()
 
-
 @routes.post("/{instana}")
 async def instana_webhook(request: web.Request) -> web.Response:
     """Do parsing of Instana event data from the request.
 
-    Arguments:
-    ---------
-    request (web.Request): Request from Instana.
+    Parameters
+    ----------
+    request : web.Request
+              Request from Instana.
 
-    Returns:
+    Returns
     -------
-    response(web.Response): Create response with results.
+           response : web.Response
+                      Create response with results.
     """
     payload = await request.json()
     endpoint = request.match_info["instana"]
@@ -61,10 +62,13 @@ async def instana_webhook(request: web.Request) -> web.Response:
 async def main(queue: asyncio.Queue, args: dict[str, Any]) -> None:
     """Start server on port 5000 listening for Instana events.
 
-    Arguments:
-    ---------
-    queue (Queue): Order incoming request from Instana.
-    args (dict): Use server configurations.
+    Parameters
+    ----------
+    queue: Queue
+           Order incoming request from Instana.
+    args: dict
+          Use server configurations.
+
     """
     app = web.Application()
     app["queue"] = queue
@@ -92,10 +96,21 @@ if __name__ == "__main__":
         async def put(self: instana_webhook, event: None) -> None:
             """Log the incoming event from Instana.
 
-            Arguments:
-            ---------
-            event: Event popped in queue.
+            Parameters
+            ----------
+            event: web.Event
+                   Event popped in queue.
             """
-            logging.info(event)
+
+
+        def __str__(self: instana_webhook) -> str:
+            """Log the incoming event from Instana.
+
+            Returns
+            -------
+            str : str
+                      Find class name.
+            """
+            return self.__class__.__name__
 
     asyncio.run(main(MockQueue(), {}))

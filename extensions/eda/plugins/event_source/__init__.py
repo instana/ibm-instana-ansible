@@ -1,1 +1,1 @@
-"""Begin declaring event sources."""
+"""Defined Event sources."""
