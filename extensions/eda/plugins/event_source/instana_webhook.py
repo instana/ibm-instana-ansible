@@ -93,7 +93,7 @@ if __name__ == "__main__":
     class MockQueue:
         """Start Queue for incoming request."""
 
-        async def put(self: instana_webhook, event: web.Event) -> web.Event:
+        async def put(self: instana_webhook, event: None) -> None:
             """Log the incoming event from Instana.
 
             Parameters
