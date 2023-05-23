@@ -68,6 +68,7 @@ The IBM Instana collection provides the ability for Instana event data to be con
 ```
     ansible >= 2.9.10
     python  >= 3.9 
+    aiohttp >= 3.8.4
 ```
 
 ## Licensing
