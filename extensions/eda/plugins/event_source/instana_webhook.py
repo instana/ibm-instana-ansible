@@ -35,6 +35,7 @@ from aiohttp import web
 
 routes = web.RouteTableDef()
 
+
 @routes.post("/{instana}")
 async def instana_webhook(request: web.Request) -> web.Response:
     """Do parsing of Instana event data from the request.
@@ -48,6 +49,7 @@ async def instana_webhook(request: web.Request) -> web.Response:
     -------
            response : web.Response
                       Create response with results.
+
     """
     payload = await request.json()
     endpoint = request.match_info["instana"]
@@ -100,8 +102,8 @@ if __name__ == "__main__":
             ----------
             event: web.Event
                    Event popped in queue.
-            """
 
+            """
 
         def __str__(self: instana_webhook) -> str:
             """Log the incoming event from Instana.
@@ -110,6 +112,7 @@ if __name__ == "__main__":
             -------
             str : str
                       Find class name.
+
             """
             return self.__class__.__name__
 
