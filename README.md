@@ -66,7 +66,7 @@ The IBM Instana collection provides the ability for Instana event data to be con
 ## Requirements
 
 ```
-    ansible >= 2.9.10
+    ansible >= 2.15.0
     python  >= 3.9 
     aiohttp >= 3.8.4
 ```
